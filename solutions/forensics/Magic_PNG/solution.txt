@@ -1,0 +1,13 @@
+This challenge is a classic case of path traversal vulnerability.
+
+We see that our input is not being checked or sanitized, and is being passed straight into opening a file.
+So since we want to grab the flag.txt file which is in the vault directory outside the directory the server is running in,
+we need a relative path to flag.txt. We can do this using ..
+
+In Linux and Windows, "./.."  points to the parent directory of the current directory in every single directory in the filesystem.
+
+in order to escape the artworks directory, we provide an input that starts with `../`
+Then we can nagivate to the vault: `../vault/`
+and then try to get the flag: `../vault/flag`
+
+This should give us the flag!

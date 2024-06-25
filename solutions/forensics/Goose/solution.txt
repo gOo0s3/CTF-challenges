@@ -1,0 +1,2 @@
+Since this is such a basic challenge, this is not going to be a full solution, but a hint
+Have you ever ehard of the `strings` command?

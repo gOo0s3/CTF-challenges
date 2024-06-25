@@ -1,0 +1,71 @@
+The encoder works like this:
+
+# get some user input to encode:
+chars = input("Enter plaintext: ")
+
+# define some sort of mapping from one char-set to another:
+lookup1 = "_{}!1234567890abcdefghijklmnopqrstuvwxyz"
+lookup2 = "ABCDEFGHIJKLMNOPQRSTabcdefghijklmnopqrst"
+
+
+# calculate the output in the following way:
+out = ""
+
+prev = 0
+for char in chars:
+	cur = lookup1.index(char)
+	out += lookup2[(cur - prev) % 40]
+	prev = cur
+
+# print the resulting encoded ciphertext:
+print(f"Ciphertext: {out}")
+
+Let's analyze exactly how the encoding works with an example; encoding the string 'ab':
+
+We have two indecies we keep track of; prev and cur. (the previous encoded char's index and current encoded char's index in lookup2).
+The way we encode the current char changes the way we encode the next char.
+
+Prev starts by being 0 and cur starts out being the index of the first char in the plaintext within the lookup1 char-set.
+So we start with char = 'a', prev = 0, cur = lookup1.index('a') = 14.
+And then we add to out:
+out += lookup2[(cur - prev) % 40] = lookup2[(14 - 0) % 40] = lookup2[14] = 'O'.
+
+The encoded char's index becomes (cur-prev)%40 [notice both lookup1 and lookup2 are at length 40 so this will always be some number between 0 and 39].
+
+At the start, when prev is 0, and cur is just some index from lookup1 (so it's between 0 and 39 anyway) the encoded char's index will just be the same as the original char's index,
+But as we keep iterating through chars, prev and cur change and we get different indecies in each itteration.
+
+after adding 'O' to out, we get a change in prev: prev = 14.
+We keep going through the loop:
+
+now char = 'b', cur = lookup1.index('b') = 15, prev = 14.
+out += lookup2[(cur - prev) % 40] = lookup2[(15 - 14) % 40] = lookup2[1] = 'B'
+so out = "OB" now.
+
+Alright, how would we reverse "OB" to get "ab" now?
+well, we know that prev starts as 0 and cur starts as the index of the first char of the plaintext, meaning the first char's index would be the same as the original's index.
+
+we know lookup2.index('O') = 14, so the index of the first char of the plaintext is 14, meaning the first char is lookup1[14] = 'a'.
+After this, prev became 14, and cur became the index of the second char, which could have changed. We don't know cur, but we know
+what (cur-prev)%40 is, because it's the index of the second char of the encoded string in lookup2.
+The index of "B" in lookup2 is 1, so cur - prev = 1 mod(40) so cur = 1+prev mod(40). we know prev is 14, so cur = 15.
+that is the index of the second char of the plaintext within lookup1, and lookup1[15] = 'b'
+
+so the original plaintext is 'ab'. we reversed the logic:
+we just need to do the following to decode any message:
+
+ciphertext = "something encoded"
+
+decoded = ""
+prev = 0
+for char in ciphertext:
+	cur = lookup2.index(char)
+	decoded += lookup1[(cur+prev) % 40]
+	prev = (cur+prev) % 40
+
+print("decoded")
+
+I wrote a python script that does this exactly with the value of ciphertext being the encoded flag.
+If you run the script, you'd get the flag as output.
+
+You can check that indeed if you encode the flag you get the exact same ciphertext as you were given, so this is legit.

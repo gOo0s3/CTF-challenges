@@ -1,0 +1,16 @@
+I provided the source code for this challenge in this directory to show exactly what's happening when you run this program.
+
+If you try to run the program normally, it will simply print to standard output:
+`LOLOLOLOLOLOLOLOLOLOLOLOLOLOLOLOLOLOLOLOLOLOLOLOLOLOLOLOL`
+
+However, the output of the program contains a special character called "Carriage return".
+It is a non-printable control character that commands a printer/output system to move the position of the cursor to the first position on the same line.
+Text printed after the carriage return is going to overwrite text that was printed before the carriage return.
+
+If we decide to redirect the output of the program into a file like so:
+`./nothing2c > out`
+
+and we cat out the ENTIRE contents of out:
+`cat -A out`
+
+we will the entirety of the output, which will contain the flag, the carriage return char, and the string of LOLs

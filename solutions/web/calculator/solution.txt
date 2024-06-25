@@ -1,0 +1,6 @@
+A classic case of the eval-calculator...
+
+We get RCE (remote code execution) easily by simply sending over to the server python code instead of math expressions.
+The eval function will run the code we give it, and then return the output.
+
+I wrote an exploit script to get somewhat of a shell on the server computer
