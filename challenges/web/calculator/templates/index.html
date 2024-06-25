@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/style.css" />
+
+    <style>
+      a,
+      button,
+      input,
+      select,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        border: none;
+        text-decoration: none;
+        appearance: none;
+        background: none;
+      }
+    </style>
+    <title>Calculator</title>
+  </head>
+  <body>
+    <div class="calc-body">
+      <input type="text" id="input" class="input-bar" readonly></input>
+      
+      
+      <button class="button-0" onclick="addToInput('0')">
+        <div class="div">0</div>
+      </button>
+      
+      <button class="button-1" onclick="addToInput('1')">
+        <div class="div">1</div>
+      </button>
+      
+      <button class="button-2" onclick="addToInput('2')">
+        <div class="div">2</div>
+      </button>
+      
+      <button class="button-3" onclick="addToInput('3')">
+        <div class="div">3</div>
+      </button>
+      
+      <button class="button-4" onclick="addToInput('4')">
+        <div class="div">4</div>
+      </button>
+      
+      <button class="button-5" onclick="addToInput('5')">
+        <div class="div">5</div>
+      </button>
+      
+      <button class="button-6" onclick="addToInput('6')">
+        <div class="div">6</div>
+      </button>
+      
+      <button class="button-7" onclick="addToInput('7')">
+        <div class="div">7</div>
+      </button>
+      
+      <button class="button-8" onclick="addToInput('8')">
+        <div class="div">8</div>
+      </button>
+      
+      <button class="button-9" onclick="addToInput('9')">
+        <div class="div">9</div>
+      </button>
+      
+      <button class="dot-button" onclick="addToInput('.')">
+        <div class="div">.</div>
+      </button>
+      
+      <button class="plus-button" onclick="addToInput('+')">
+        <div class="div">+</div>
+      </button>
+      
+      <button class="minus-button" onclick="addToInput('-')">
+        <div class="div">−</div>
+      </button>
+      
+      <button class="multiply-button" onclick="addToInput('*')">
+        <div class="div">×</div>
+      </button>
+      
+      <button class="divide-button" onclick="addToInput('/')">
+        <div class="div">÷</div>
+      </button>
+      
+      <button class="left-bracket-button" onclick="addToInput('(')">
+        <div class="div">(</div>
+      </button>
+      
+      <button class="right-bracket-button" onclick="addToInput(')')">
+        <div class="div">)</div>
+      </button>
+      
+      <button class="backspace-button" onclick="subFromInput()">
+        <!--The backspace button is an svg image, gotta pull it here so it looks nice... (pretty boring)-->
+        <svg class="backspace-1" width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g clip-path="url(#clip0_1_83)">
+            <path d="M22.5 3.5H7.5C6.81 3.5 6.27 3.85 5.91 4.38L0.5 12.5L5.91 20.61C6.27 21.14 6.81 21.5 7.5 21.5H22.5C23.0304 21.5 23.5391 21.2893 23.9142 20.9142C24.2893 20.5391 24.5 20.0304 24.5 19.5V5.5C24.5 4.96957 24.2893 4.46086 23.9142 4.08579C23.5391 3.71071 23.0304 3.5 22.5 3.5ZM19.5 16.09L18.09 17.5L14.5 13.91L10.91 17.5L9.5 16.09L13.09 12.5L9.5 8.91L10.91 7.5L14.5 11.09L18.09 7.5L19.5 8.91L15.91 12.5" fill="#CCE0EB"/>
+          </g>
+          <defs>
+            <clipPath id="clip0_1_83">
+              <rect width="24" height="24" fill="white" transform="translate(0.5 0.5)"/>
+            </clipPath>
+          </defs>
+        </svg>
+      </button>
+      
+      <button class="AC-button" onclick="clearEverything()">
+        <div class="ac">AC</div>
+      </button>
+      
+      <button class="equals-button" onclick="calculateInput()">
+        <div class="div">=</div>
+      </button>
+    </div>
+    
+    <script>
+    		// oh boy let's add some numbers and operations to that thing!
+		function addToInput(value) {
+			document.getElementById('input').value += value;
+		}
+		
+		// made a small typo there didn't ya?
+		function subFromInput() {
+			document.getElementById('input').value = document.getElementById('input').value.slice(0, -1);
+		}
+		
+		// or maybe made a pretty big typo...
+		function clearEverything() {
+			document.getElementById('input').value = "";
+		}
+		
+		// let's EVALUATE this input!
+		async function calculateInput() {
+			try {
+				const expression = document.getElementById('input').value;
+				const response = await fetch('./result', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/x-www-form-urlencoded',
+					},
+					body: new URLSearchParams({ 'expression_to_calculate': expression }),
+				});
+
+				if (response.ok) {
+					const result = await response.text();
+					// Update the input field with the result or handle it as needed
+					document.getElementById('input').value = result;
+				} else {
+					console.error('Server error:', response.statusText);
+				}
+			} catch (error) {
+				console.error('Error:', error);
+			}
+		}
+	</script>
+  </body>
+</html>

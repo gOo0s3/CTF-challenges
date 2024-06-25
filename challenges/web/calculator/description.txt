@@ -1,0 +1,3 @@
+run this Flask server with python: `python3 calc.py`
+
+Try to remotely get access to the flag through a vulnrability in the server.

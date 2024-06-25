@@ -1,0 +1,2 @@
+Enter plaintext: [Redacted because it's my secret flag]
+Ciphertext: TGjGbrPbGbgiLoHjKgbNaoQPHlEaHLQcmdMlSPIQTcTpBECAEkgbBCqfL

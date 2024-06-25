@@ -1,0 +1,2 @@
+Run the server: `./server.sh`
+And try to get the flag remotely/locally but using the server :)

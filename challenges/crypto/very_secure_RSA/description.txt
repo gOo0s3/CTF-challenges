@@ -1,0 +1,1 @@
+The flag fits the regexp: `flag{[_0-9a-zA-Z]*}`

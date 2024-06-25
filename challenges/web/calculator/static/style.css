@@ -1,0 +1,363 @@
+body {
+    background-color: #151C28; 
+}
+.calc-body,
+.calc-body * {
+  box-sizing: border-box;
+}
+.calc-body {
+  background: #272727;
+  border-radius: 15px;
+  width: 309px;
+  height: 484px;
+  position: relative;
+  overflow: hidden;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.input-bar {
+  background: #38393d;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: center;
+  width: 271px;
+  height: 59px;
+  position: absolute;
+  left: 21px;
+  top: 31px;
+}
+input{
+	font-size: 1.75rem;
+	color: #ffffff;
+	display: flex;
+}
+.div {
+  color: #cce0eb;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  position: relative;
+}
+.button-0 {
+  background: #454545;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 59px;
+  height: 59px;
+  position: absolute;
+  left: 21px;
+  top: 392px;
+}
+.button-1 {
+  background: #454545;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 59px;
+  height: 59px;
+  position: absolute;
+  left: 21px;
+  top: 322px;
+}
+.button-2 {
+  background: #454545;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 59px;
+  height: 59px;
+  position: absolute;
+  left: 90px;
+  top: 322px;
+}
+.button-3 {
+  background: #454545;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 59px;
+  height: 59px;
+  position: absolute;
+  left: 159px;
+  top: 322px;
+}
+.button-4 {
+  background: #454545;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 59px;
+  height: 59px;
+  position: absolute;
+  left: 21px;
+  top: 252px;
+}
+.button-5 {
+  background: #454545;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 59px;
+  height: 59px;
+  position: absolute;
+  left: 90px;
+  top: 252px;
+}
+.button-6 {
+  background: #454545;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 59px;
+  height: 59px;
+  position: absolute;
+  left: 159px;
+  top: 252px;
+}
+.button-7 {
+  background: #454545;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 59px;
+  height: 59px;
+  position: absolute;
+  left: 21px;
+  top: 182px;
+}
+.button-8 {
+  background: #454545;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 59px;
+  height: 59px;
+  position: absolute;
+  left: 90px;
+  top: 182px;
+}
+.button-9 {
+  background: #454545;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 59px;
+  height: 59px;
+  position: absolute;
+  left: 159px;
+  top: 182px;
+}
+.dot-button {
+  background: #454545;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 59px;
+  height: 59px;
+  position: absolute;
+  left: 90px;
+  top: 392px;
+}
+.plus-button {
+  background: #004a77;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 59px;
+  height: 59px;
+  position: absolute;
+  left: 230px;
+  top: 322px;
+}
+.minus-button {
+  background: #004a77;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 59px;
+  height: 59px;
+  position: absolute;
+  left: 230px;
+  top: 252px;
+}
+.multiply-button {
+  background: #004a77;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 59px;
+  height: 59px;
+  position: absolute;
+  left: 230px;
+  top: 182px;
+}
+.divide-button {
+  background: #004a77;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 59px;
+  height: 59px;
+  position: absolute;
+  left: 230px;
+  top: 112px;
+}
+.left-bracket-button {
+  background: #004a77;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 59px;
+  height: 59px;
+  position: absolute;
+  left: 90px;
+  top: 112px;
+}
+.right-bracket-button {
+  background: #004a77;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 59px;
+  height: 59px;
+  position: absolute;
+  left: 159px;
+  top: 112px;
+}
+.backspace-button {
+  background: #454545;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 59px;
+  height: 59px;
+  position: absolute;
+  left: 159px;
+  top: 392px;
+}
+.backspace-1 {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  position: relative;
+  overflow: visible;
+}
+
+.AC-button {
+  background: #0f5324;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 59px;
+  height: 59px;
+  position: absolute;
+  left: 21px;
+  top: 112px;
+}
+.ac {
+  color: #cce0eb;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  position: relative;
+}
+.equals-button {
+  background: #0742a0;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 59px;
+  height: 59px;
+  position: absolute;
+  left: 230px;
+  top: 393px;
+}
